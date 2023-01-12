@@ -2,15 +2,14 @@
 #Here’s the complete Dockerfile.
 # syntax=docker/dockerfile:1
 
-FROM node:12.18.1
-ENV NODE_ENV=production
+FROM node:latest
+
 
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install --production
-
+RUN npm install
 COPY . .
 
 CMD [ "node", "server.js" ]
